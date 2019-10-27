@@ -34,18 +34,24 @@
     "#utils": "src/utils",
     "#error": "src/utils/error-handler",
     "#config": "src/config",
-    "#middlewares": "src/middlewares"
+    "#middlewares": "src/middlewares",
+    "#routes": "src/routes",
+    "#database": "src/database"
   },
   "author": "Yuriy Zahreva",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
+    "dotenv-safe": "^8.1.0",
     "express": "^4.17.1",
     "express-validator": "^6.2.0",
     "glob": "^7.1.4",
     "module-alias": "^2.2.1",
     "morgan": "^1.9.1",
+    "mysql2": "^2.0.0",
+    "sequelize": "^5.21.1",
+    "uuid": "^3.3.3",
     "winston": "^3.2.1"
   },
   "devDependencies": {
@@ -60,7 +66,8 @@
     "link-module-alias": "^1.2.0",
     "lint-staged": "^9.3.0",
     "nodemon": "^1.19.3",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "sequelize-cli": "^5.5.1"
   },
   "bugs": {
     "url": "https://github.com/zahreva/express-starter/issues"

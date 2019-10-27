@@ -1,13 +1,9 @@
-const bots = [
-  { id: 1, name: 'Watson', type: 'small talk', language: 'en' },
-  { id: 2, name: 'Ivan', type: 'presale', language: 'ua' },
-  { id: 3, name: 'Milka', type: 'small talk', language: 'uk' }
-];
+const bots = require('#database/helpers/bots');
 
-function controller(req, res) {
+async function controller(req, res) {
   return res.send({
     message: 'Seccessfully retrieved bot list.',
-    data: { bots },
+    data: await bots.getAll(),
     status: 200
   });
 }

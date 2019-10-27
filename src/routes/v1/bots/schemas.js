@@ -4,7 +4,7 @@ function checkSchemas(method) {
   switch (method) {
     case 'createBot': {
       return [
-        body('id')
+        body('platformId')
           .exists()
           .withMessage('id should exist')
           .bail()
@@ -15,19 +15,7 @@ function checkSchemas(method) {
           .withMessage('name should exist')
           .bail()
           .isString()
-          .withMessage('name should be string'),
-        body('language')
-          .exists()
-          .withMessage('language should exist')
-          .bail()
-          .isString()
-          .withMessage('language should be string'),
-        body('type')
-          .exists()
-          .withMessage('type should exist')
-          .bail()
-          .isString()
-          .withMessage('type should be string')
+          .withMessage('name should be string')
       ];
     }
     default:

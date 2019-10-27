@@ -1,15 +1,10 @@
 const AppError = require('#error');
+const Bots = require('#database/helpers/bots');
 
-const bots = [
-  { id: 1, name: 'Watson', type: 'small talk', language: 'en' },
-  { id: 2, name: 'Ivan', type: 'presale', language: 'ua' },
-  { id: 3, name: 'Milka', type: 'big talk', language: 'ru' }
-];
-
-function controller(req, res) {
+async function controller(req, res) {
   const { id } = req.params;
 
-  const bot = bots.find(x => x.id === +id);
+  const bot = await Bots.getOne(id);
 
   if (!bot) {
     throw new AppError({
@@ -19,9 +14,9 @@ function controller(req, res) {
   }
 
   return res.send({
-    message: 'Successfully retrieved bot!',
+    message: 'Successfully deleted bot!',
     data: { bot },
-    status: 200
+    status: 204
   });
 }
 
