@@ -5,8 +5,8 @@ const sqlDate = () =>
     .replace('T', ' ');
 
 module.exports = {
-  up: queryInterface => {
-    return queryInterface.bulkInsert(
+  up: queryInterface =>
+    queryInterface.bulkInsert(
       'platforms',
       [
         {
@@ -26,10 +26,7 @@ module.exports = {
         }
       ],
       {}
-    );
-  },
+    ),
 
-  down: queryInterface => {
-    return queryInterface.bulkDelete('platforms', null, {});
-  }
+  down: queryInterface => queryInterface.bulkDelete('platforms', null, {})
 };

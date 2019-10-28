@@ -1,4 +1,4 @@
-const db = require('#database');
+const { syncModels } = require('#database/relations');
 const { logger } = require('#utils');
 
 const {
@@ -7,8 +7,7 @@ const {
 
 async function sequelizeLoader() {
   try {
-    await db.sequelize.authenticate();
-    await db.sequelize.sync({ force: false });
+    await syncModels();
     logger.info(`Success connected to ${dialect}`);
   } catch (e) {
     logger.error('Error connect to MySQL');

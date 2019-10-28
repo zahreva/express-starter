@@ -10,6 +10,10 @@ const basename = path.basename(__filename);
 const modelsPath = path.join(__dirname, './models');
 const db = {};
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 const sequelize = new Sequelize(database, username, password, {
   host,
   dialect
@@ -23,7 +27,7 @@ fs.readdirSync(modelsPath)
   })
   .forEach(file => {
     const model = sequelize.import(path.join(modelsPath, file));
-    db[model.name] = model;
+    db[capitalizeFirstLetter(model.name)] = model;
   });
 
 Object.keys(db).forEach(modelName => {
