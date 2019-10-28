@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 require('module-alias/register');
 
 const express = require('express');
